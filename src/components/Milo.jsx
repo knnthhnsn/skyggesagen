@@ -1,5 +1,7 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useGame } from '../context/GameContext.jsx'
+import OptimizedImage from './OptimizedImage.jsx'
+import { miloAssetUrl } from '../utils/assetUrl.js'
 
 const POSE_TO_FILE = {
   wave: 'milo-waving.png',
@@ -12,6 +14,11 @@ const POSE_TO_FILE = {
   watching: 'milo-watching.png',
   run: 'milo-run.png',
   flying: 'milo-flying.png',
+}
+
+const POSE_TO_VIDEO = {
+  thumbs: 'milo-thumbs-up.mp4',
+  watching: 'milo-store-ojne.mp4',
 }
 
 const POSE_ALT = {
@@ -27,10 +34,17 @@ const POSE_ALT = {
   flying: 'Milo mågen flyver af sted med en indsigt',
 }
 
+const SIZE_PX = {
+  sm: 64,
+  md: 110,
+  lg: 180,
+  xl: 220,
+}
+
 /**
  * Milo komponent — robust med fallback hvis billede mangler.
  * Tryk x5 låser easter-egg op (kun sjov, ingen progression-konsekvens).
- * Brug:  <Milo pose="wave" size="lg" bob />
+ * Brug:  <Milo pose="wave" size="lg" bob priority />
  */
 export default function Milo({
   pose = 'neutral',
@@ -38,23 +52,30 @@ export default function Milo({
   bob = false,
   pulse = false,
   decorative = false,
+  priority = false,
   className = '',
   style,
 }) {
   const [errored, setErrored] = useState(false)
+  const [videoFailed, setVideoFailed] = useState(false)
   const [nudge, setNudge] = useState(false)
+  const [videoReady, setVideoReady] = useState(false)
   const miloRef = useRef(null)
+  const videoRef = useRef(null)
   const nudgeTimerRef = useRef(null)
   const ctx = useGame()
   const tapMilo = ctx?.tapMilo
   const eggUnlocked = ctx?.state?.miloEggUnlocked || false
 
   const file = POSE_TO_FILE[pose] || POSE_TO_FILE.neutral
-  const src = `${import.meta.env.BASE_URL || '/'}assets/milo/${file}`
+  const videoFile = POSE_TO_VIDEO[pose]
+  const videoSrc = videoFile ? miloAssetUrl(videoFile) : null
+  const useVideo = !!videoSrc && !videoFailed && !errored
   const alt = decorative ? '' : (POSE_ALT[pose] || 'Milo mågen')
   const tapLabel = eggUnlocked
     ? `${alt}. Tryk for at høre Milos hvisken igen.`
     : `${alt}. Tryk på Milo og se hvad der sker.`
+  const dimension = SIZE_PX[size] || SIZE_PX.md
 
   function handleTap(e) {
     if (decorative || !tapMilo) return
@@ -71,10 +92,39 @@ export default function Milo({
     handleTap(e)
   }
 
+  useEffect(() => {
+    setErrored(false)
+    setVideoFailed(false)
+    setVideoReady(false)
+  }, [pose])
+
+  useEffect(() => {
+    const root = miloRef.current
+    if (!root || !useVideo) return undefined
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) setVideoReady(true)
+      },
+      { rootMargin: '120px', threshold: 0.01 }
+    )
+    observer.observe(root)
+    return () => observer.disconnect()
+  }, [useVideo, pose])
+
+  useEffect(() => {
+    const video = videoRef.current
+    if (!video || !useVideo || !videoReady) return undefined
+    video.muted = true
+    video.defaultMuted = true
+    video.play().catch(() => setVideoFailed(true))
+    return undefined
+  }, [useVideo, videoReady, videoSrc])
+
   return (
     <div
       ref={miloRef}
-      className={`milo size-${size} pose-${pose}${bob ? ' bob' : ''}${pulse ? ' pulse' : ''}${nudge ? ' milo-nudge' : ''} ${className}`}
+      className={`milo size-${size} pose-${pose}${useVideo ? ' is-video' : ''}${bob ? ' bob' : ''}${pulse ? ' pulse' : ''}${nudge ? ' milo-nudge' : ''} ${className}`}
       style={style}
       aria-hidden={decorative ? 'true' : undefined}
       aria-label={decorative ? undefined : tapLabel}
@@ -87,12 +137,51 @@ export default function Milo({
         <div className="milo-fallback" role="img" aria-label={decorative ? undefined : alt}>
           MILO
         </div>
+      ) : useVideo ? (
+        <>
+          {!videoReady && (
+            <OptimizedImage
+              file={file}
+              className="milo-media"
+              alt=""
+              aria-hidden="true"
+              loading={priority ? 'eager' : 'lazy'}
+              fetchPriority={priority ? 'high' : undefined}
+              width={dimension}
+              height={dimension}
+              draggable={false}
+            />
+          )}
+          <video
+            ref={videoRef}
+            className="milo-media milo-video"
+            src={videoReady ? videoSrc : undefined}
+            autoPlay
+            loop
+            muted
+            playsInline
+            disablePictureInPicture
+            controls={false}
+            controlsList="nodownload noplaybackrate noremoteplayback"
+            preload="none"
+            width={dimension}
+            height={dimension}
+            aria-hidden="true"
+            tabIndex={-1}
+            style={videoReady ? undefined : { position: 'absolute', opacity: 0, pointerEvents: 'none' }}
+            onError={() => setVideoFailed(true)}
+          />
+        </>
       ) : (
-        <img
-          src={src}
+        <OptimizedImage
+          file={file}
+          className="milo-media"
           alt={alt}
-          loading="eager"
-          draggable="false"
+          loading={priority ? 'eager' : 'lazy'}
+          fetchPriority={priority ? 'high' : undefined}
+          width={dimension}
+          height={dimension}
+          draggable={false}
           onError={() => setErrored(true)}
         />
       )}

@@ -68,7 +68,7 @@ export default function StartScreen({ onOpenCase, onTeacher }) {
           <div className="start-case-stage">
             <CaseFolder state={opening ? 'opening' : 'closed'} />
             <div className="start-milo">
-              <Milo pose={opening ? 'run' : 'wave'} size="lg" bob={!opening} pulse={opening} />
+              <Milo pose={opening ? 'run' : 'wave'} size="lg" bob={!opening} pulse={opening} priority={!opening} />
             </div>
             <div className="start-shadow-card start-shadow-card-left" aria-hidden="true">
               Kun én vinkel

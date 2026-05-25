@@ -1,23 +1,28 @@
-import { useEffect, useState } from 'react'
+import { lazy, Suspense, useEffect, useState } from 'react'
 import AppShell from './components/AppShell.jsx'
-import StartScreen from './screens/StartScreen.jsx'
-import ProfileScreen from './screens/ProfileScreen.jsx'
-import HubScreen from './screens/HubScreen.jsx'
-import BriefingScreen from './screens/BriefingScreen.jsx'
-import InvestigateScreen from './screens/InvestigateScreen.jsx'
-import WitnessScreen from './screens/WitnessScreen.jsx'
-import TimelineScreen from './screens/TimelineScreen.jsx'
-import SortScreen from './screens/SortScreen.jsx'
-import QuestionScreen from './screens/QuestionScreen.jsx'
-import ExplanationScreen from './screens/ExplanationScreen.jsx'
-import RevealScreen from './screens/RevealScreen.jsx'
-import PhilosophyScreen from './screens/PhilosophyScreen.jsx'
-import ReportScreen from './screens/ReportScreen.jsx'
-import TeacherScreen from './screens/TeacherScreen.jsx'
-import Notebook, { NotebookPanel } from './components/Notebook.jsx'
-import AchievementPopup from './components/AchievementPopup.jsx'
 import { useGame } from './context/GameContext.jsx'
 import { resolveInitialScreen, applyMotionEffectsPref } from './utils/storage.js'
+
+const StartScreen = lazy(() => import('./screens/StartScreen.jsx'))
+const ProfileScreen = lazy(() => import('./screens/ProfileScreen.jsx'))
+const HubScreen = lazy(() => import('./screens/HubScreen.jsx'))
+const BriefingScreen = lazy(() => import('./screens/BriefingScreen.jsx'))
+const InvestigateScreen = lazy(() => import('./screens/InvestigateScreen.jsx'))
+const WitnessScreen = lazy(() => import('./screens/WitnessScreen.jsx'))
+const TimelineScreen = lazy(() => import('./screens/TimelineScreen.jsx'))
+const SortScreen = lazy(() => import('./screens/SortScreen.jsx'))
+const QuestionScreen = lazy(() => import('./screens/QuestionScreen.jsx'))
+const ExplanationScreen = lazy(() => import('./screens/ExplanationScreen.jsx'))
+const RevealScreen = lazy(() => import('./screens/RevealScreen.jsx'))
+const PhilosophyScreen = lazy(() => import('./screens/PhilosophyScreen.jsx'))
+const ReportScreen = lazy(() => import('./screens/ReportScreen.jsx'))
+const TeacherScreen = lazy(() => import('./screens/TeacherScreen.jsx'))
+
+const Notebook = lazy(() => import('./components/Notebook.jsx'))
+const NotebookPanel = lazy(() =>
+  import('./components/Notebook.jsx').then((m) => ({ default: m.NotebookPanel }))
+)
+const AchievementPopup = lazy(() => import('./components/AchievementPopup.jsx'))
 
 const NIGHT_SCREENS = new Set(['start', 'reveal'])
 const NOTEBOOK_HIDDEN = new Set(['start', 'profile', 'teacher', 'reveal'])
@@ -39,6 +44,10 @@ const SCREEN_TITLES = {
   teacher: 'Lærerside',
 }
 
+function ScreenFallback() {
+  return <div className="screen screen-fallback" aria-busy="true" aria-label="Indlæser..." />
+}
+
 export default function App() {
   const { state, setLastScreen } = useGame()
   const [screen, setScreen] = useState(() => resolveInitialScreen(state))
@@ -53,6 +62,15 @@ export default function App() {
   useEffect(() => {
     applyMotionEffectsPref(state.motionEffectsEnabled)
   }, [state.motionEffectsEnabled])
+
+  useEffect(() => {
+    if (screen !== 'start') return undefined
+    const prefetch = state.detectiveName
+      ? import('./screens/HubScreen.jsx')
+      : import('./screens/ProfileScreen.jsx')
+    prefetch.catch(() => {})
+    return undefined
+  }, [screen, state.detectiveName])
 
   function go(next) {
     setLastScreen(next)
@@ -118,11 +136,23 @@ export default function App() {
     <AppShell
       themeNight={themeNight}
       screen={screen}
-      sidebar={showNotebook ? <NotebookPanel go={go} /> : null}
+      sidebar={
+        showNotebook ? (
+          <Suspense fallback={null}>
+            <NotebookPanel go={go} />
+          </Suspense>
+        ) : null
+      }
     >
-      {content}
-      {showNotebook && <Notebook go={go} currentScreen={screen} />}
-      <AchievementPopup />
+      <Suspense fallback={<ScreenFallback />}>{content}</Suspense>
+      {showNotebook && (
+        <Suspense fallback={null}>
+          <Notebook go={go} currentScreen={screen} />
+        </Suspense>
+      )}
+      <Suspense fallback={null}>
+        <AchievementPopup />
+      </Suspense>
     </AppShell>
   )
 }

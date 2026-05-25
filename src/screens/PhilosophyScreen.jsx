@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
+import OptimizedImage from '../components/OptimizedImage.jsx'
 import Header from '../components/Header.jsx'
 import Button from '../components/Button.jsx'
 import SkipTaskButton from '../components/SkipTaskButton.jsx'
@@ -450,11 +451,13 @@ function CaveArt({ step }) {
   if (image && erroredStep !== step) {
     return (
       <div className="cave-art" aria-hidden="true">
-        <img
+        <OptimizedImage
           className="cave-art-image"
-          src={`${import.meta.env.BASE_URL || '/'}assets/milo/${image}`}
+          file={image}
           alt=""
-          draggable="false"
+          loading="lazy"
+          decoding="async"
+          draggable={false}
           onError={() => setErroredStep(step)}
         />
       </div>

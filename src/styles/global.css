@@ -506,6 +506,10 @@ img { display: block; max-width: 100%; }
   position: relative;
 }
 
+.screen-fallback {
+  min-height: 50vh;
+}
+
 .screen-pad {
   padding-bottom: 96px;
 }
@@ -608,6 +612,39 @@ h1, h2, h3 { margin: 0; }
   display: block;
   width: 100%;
   height: auto;
+}
+
+.milo.is-video {
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  overflow: hidden;
+  background: radial-gradient(circle at 50% 38%, #fffaf0 0%, #dcecf8 52%, #357fc4 100%);
+}
+
+.milo-media {
+  display: block;
+  width: 100%;
+}
+
+.milo-video {
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: center center;
+  border-radius: 50%;
+  pointer-events: none;
+  background: transparent;
+}
+
+.milo-video::-webkit-media-controls,
+.milo-video::-webkit-media-controls-enclosure,
+.milo-video::-webkit-media-controls-panel,
+.milo-video::-webkit-media-controls-play-button,
+.milo-video::-webkit-media-controls-start-playback-button,
+.milo-video::-webkit-media-controls-overlay-play-button {
+  display: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
 }
 
 .milo-fallback {
@@ -1714,7 +1751,8 @@ h1, h2, h3 { margin: 0; }
   max-width: 200px;
 }
 
-.clue-reveal-hero .milo img {
+.clue-reveal-hero .milo img,
+.clue-reveal-hero .milo video {
   width: 100%;
   height: auto;
   object-fit: contain;
@@ -5535,7 +5573,8 @@ html[data-motion-effects="on"] .profile-pass-portrait::after {
   cursor: pointer;
 }
 
-.milo.milo-nudge img {
+.milo.milo-nudge img,
+.milo.milo-nudge video {
   animation: miloNudge 380ms ease;
 }
 
