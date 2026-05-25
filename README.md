@@ -65,6 +65,7 @@ Milos billeder ligger i `public/assets/milo/` (kopieres til `dist/assets/milo/` 
 - `milo-glitter.png` — reserve / fejring
 - `milo-side.png` — forklaringer
 - `milo-poses.png` — reserve
+- `milo-thumbs-up.mp4`, `milo-store-ojne.mp4` — loopende cirkelvideoer (tommel op / store øjne)
 - `find-spor.png`, `spor.png` — scenespor
 - `milo-klassekammerat.png`, `milo-lærer.png`, `milo-ven.png` — vidner
 - `i-hulen.png`, `vender-sig.png`, `mod-udgangen.png`, `ude-i-solen.png` — hulelignelse

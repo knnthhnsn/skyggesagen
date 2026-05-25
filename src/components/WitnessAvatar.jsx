@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import OptimizedImage from './OptimizedImage.jsx'
 
 /**
  * Lille SVG-portræt af et vidne. Genereres ud fra portrait-konfig i caseData.
@@ -6,12 +7,20 @@ import { useState } from 'react'
 export default function WitnessAvatar({ portrait, image, size = 88, speaking = false }) {
   const [imageErrored, setImageErrored] = useState(false)
   const { skin = '#f6cfae', hair = '#3a2615', accessory, accessoryColor = '#357fc4' } = portrait || {}
-  const src = image ? `${import.meta.env.BASE_URL || '/'}assets/milo/${image}` : ''
 
   return (
     <div className={`witness-avatar${speaking ? ' is-speaking' : ''}`} style={{ width: size, height: size }} aria-hidden="true">
       {image && !imageErrored ? (
-        <img src={src} alt="" draggable="false" onError={() => setImageErrored(true)} />
+        <OptimizedImage
+          file={image}
+          alt=""
+          loading="lazy"
+          decoding="async"
+          draggable={false}
+          width={size}
+          height={size}
+          onError={() => setImageErrored(true)}
+        />
       ) : (
         <svg viewBox="0 0 100 100" width={size} height={size}>
           <defs>

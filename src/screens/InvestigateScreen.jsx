@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import OptimizedImage from '../components/OptimizedImage.jsx'
 import Header from '../components/Header.jsx'
 import Button from '../components/Button.jsx'
 import SkipTaskButton from '../components/SkipTaskButton.jsx'
@@ -150,16 +151,17 @@ export default function InvestigateScreen({ onNext, onBack }) {
 // Billedscene med robust SVG-fallback, hvis assettet mangler.
 function SceneArt() {
   const [imageErrored, setImageErrored] = useState(false)
-  const imageSrc = `${import.meta.env.BASE_URL || '/'}assets/milo/find-spor.png`
 
   if (!imageErrored) {
     return (
-      <img
+      <OptimizedImage
+        file="find-spor.png"
         className="scene-image"
-        src={imageSrc}
         alt=""
         aria-hidden="true"
-        draggable="false"
+        loading="lazy"
+        decoding="async"
+        draggable={false}
         onError={() => setImageErrored(true)}
       />
     )
