@@ -89,7 +89,7 @@ export default function InvestigateScreen({ onNext, onBack }) {
           return (
             <button
               key={c.id}
-              className={`hotspot${isFound ? ' is-found' : ''}${hintedClueId === c.id ? ' is-hinted' : ''}`}
+              className={`hotspot hotspot-${c.id}${c.hotspot.size ? ` size-${c.hotspot.size}` : ''}${isFound ? ' is-found' : ''}${hintedClueId === c.id ? ' is-hinted' : ''}`}
               style={{ left: `${c.hotspot.x}%`, top: `${c.hotspot.y}%` }}
               onClick={() => handleHotspot(c)}
               aria-label={isFound ? `Spor fundet: ${c.title}` : `Undersøg punkt ${c.title}`}

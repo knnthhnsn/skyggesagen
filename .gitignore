@@ -10,3 +10,5 @@ dist/
 # Rå videoklip i projektrod (spillets versioner ligger i public/assets/milo/)
 /*.mp4
 /*.MP4
+
+.vercel
