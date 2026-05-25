@@ -39,7 +39,7 @@ function DefaultFolderContent({ caseName }) {
         <span className="tape" style={{ top: -8, left: '30%', width: 56, height: 16 }} />
       </div>
       <div style={{ position: 'absolute', right: 8, top: 22, transform: 'rotate(4deg)', background: '#fff7d6', padding: '8px 10px', borderRadius: 4, boxShadow: '0 6px 12px rgba(31,41,51,0.18)', fontWeight: 700, fontSize: 12, color: '#6f5113', maxWidth: 110 }}>
-        Vidne: 3<br />Vinkler: ?
+        Vidner: 3<br />Vinkler: ?<br />Sandheden: ?
         <span className="pin" style={{ top: -6, left: '50%', transform: 'translateX(-50%)' }} />
       </div>
       <div style={{ position: 'absolute', bottom: 0, left: 14, transform: 'rotate(-2deg)', background: '#ffe6e6', padding: '6px 10px', borderRadius: 4, fontSize: 11, color: '#7a3838', fontWeight: 700, boxShadow: '0 4px 8px rgba(31,41,51,0.18)' }}>
