@@ -1399,6 +1399,28 @@ h1, h2, h3 { margin: 0; }
   z-index: 3;
 }
 
+.hotspot.size-lg {
+  width: 112px;
+  height: 112px;
+}
+
+.hotspot.size-lg::after {
+  inset: 40px;
+}
+
+.hotspot.size-lg:focus-visible::after,
+.hotspot.size-lg.is-hinted::after {
+  inset: 32px;
+}
+
+.hotspot.size-lg:focus-visible::before {
+  inset: 6px;
+}
+
+.hotspot.size-lg.is-hinted::before {
+  inset: -4px;
+}
+
 .hotspot::after {
   content: "";
   position: absolute;
@@ -1448,10 +1470,7 @@ h1, h2, h3 { margin: 0; }
   pointer-events: none;
 }
 .hotspot.is-found::after {
-  inset: 12px;
-  background: var(--success);
-  box-shadow: 0 0 14px rgba(110, 169, 110, 0.7);
-  opacity: 1;
+  display: none;
 }
 .hotspot.is-found::before { display: none; }
 
@@ -1474,7 +1493,8 @@ h1, h2, h3 { margin: 0; }
 
 .hotspot.is-found .pin-marker {
   position: absolute;
-  inset: -28px -10px auto auto;
+  top: -28px;
+  right: -10px;
   background: var(--bg-paper);
   border-radius: 4px;
   font-size: 10px;
@@ -1486,6 +1506,19 @@ h1, h2, h3 { margin: 0; }
   box-shadow: var(--shadow-card);
   white-space: nowrap;
   transform: rotate(-3deg);
+}
+
+/* Pin-labels justeret hvor hotspot er flyttet eller gjort større */
+.hotspot.hotspot-clue-1.is-found .pin-marker {
+  top: 10px;
+}
+
+.hotspot.hotspot-clue-2.is-found .pin-marker {
+  top: 18px;
+}
+
+.hotspot.hotspot-clue-3.is-found .pin-marker {
+  top: 20px;
 }
 
 .scene-spotlight {
