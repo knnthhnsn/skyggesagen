@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.vite/
+.DS_Store
+*.log
+.env
+.env.local
+.env.*.local
+
+# Lokale kildematerialer — ikke en del af spillet
+*.mp4
+*.MP4
