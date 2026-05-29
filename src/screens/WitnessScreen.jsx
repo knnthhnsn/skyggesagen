@@ -24,7 +24,7 @@ export default function WitnessScreen({ onNext, onBack }) {
   })), [answers])
 
   const allInterviewedNow = WITNESSES.every((w) => (answers[w.id] || []).length >= QUESTIONS_PER_WITNESS)
-  // Hvis state allerede markerer vidnerne som færdige (fx via migration), så respektér det.
+  // Hvis state allerede markerer vidnerne som færdige (fx via migration), så respekter det.
   const allInterviewed = allInterviewedNow || !!state.witnessesDone
   const totalAsked = Object.values(answers).reduce((sum, list) => sum + list.length, 0)
 
@@ -129,7 +129,7 @@ export default function WitnessScreen({ onNext, onBack }) {
 
       {allInterviewed && (
         <div className="paper fade-up witness-insight">
-          <span className="eyebrow">Tre vinkler — én sag</span>
+          <span className="eyebrow">Tre vinkler — en sag</span>
           <ul className="witness-insight-list">
             {WITNESSES.map((w) => (
               <li key={w.id}>
@@ -138,7 +138,7 @@ export default function WitnessScreen({ onNext, onBack }) {
             ))}
           </ul>
           <p className="witness-insight-rule">
-            Ingen af dem ser hele sandheden. Sammen viser de mere end ét billede kan.
+            Ingen af dem ser hele sandheden. Sammen viser de mere end et billede kan.
           </p>
         </div>
       )}

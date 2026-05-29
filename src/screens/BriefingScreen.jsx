@@ -11,7 +11,7 @@ export default function BriefingScreen({ onNext, onBack }) {
   const { completeScreen } = useGame()
 
   useEffect(() => {
-    // Briefing er passivt — markér som læst når brugeren har set skærmen i et øjeblik
+    // Briefing er passivt — marker som læst når brugeren har set skærmen i et øjeblik
     const t = setTimeout(() => completeScreen('briefing'), 200)
     return () => clearTimeout(t)
   }, [completeScreen])
@@ -23,7 +23,7 @@ export default function BriefingScreen({ onNext, onBack }) {
       <div className="paper-warm fade-up">
         <span className="eyebrow">Hvad vi ved</span>
         <p style={{ marginTop: 8, fontWeight: 600, lineHeight: 1.5 }}>
-          Et billede fra skolegården er blevet delt. Mange tror, at billedet viser hele sandheden. Men Milo har opdaget noget mærkeligt: <strong>billedet viser kun én vinkel.</strong>
+          Et billede fra skolegården er blevet delt. Mange tror, at billedet viser hele sandheden. Men Milo har opdaget noget mærkeligt: <strong>billedet viser kun en vinkel.</strong>
         </p>
       </div>
 

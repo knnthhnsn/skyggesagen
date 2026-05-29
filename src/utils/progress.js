@@ -53,7 +53,7 @@ export const HUB_NODES = [
   { id: 'spor1', label: 'Spor: Billedet', screen: 'investigate' },
   { id: 'spor2', label: 'Spor: Vidner', screen: 'witness' },
   { id: 'spor3', label: 'Spor: Tidslinje', screen: 'timeline' },
-  { id: 'sort', label: 'Sortér sporene', screen: 'sort' },
+  { id: 'sort', label: 'Sorter sporene', screen: 'sort' },
   { id: 'question', label: 'Det gode spørgsmål', screen: 'question' },
   { id: 'explanation', label: 'Forklaringen', screen: 'explanation' },
   { id: 'reveal', label: 'Afslør skyggen', screen: 'reveal' },

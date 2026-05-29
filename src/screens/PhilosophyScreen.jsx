@@ -33,8 +33,8 @@ const CAVE_STAGE_IMAGES = {
 
 /**
  * PhilosophyScreen — Platons filosofi i fire trin:
- *   1. To verdener (sanseverden vs. idéverden)
- *   2. Match idéer med deres hverdagskopier (mini-spil)
+ *   1. To verdener (sanseverden vs. ideverden)
+ *   2. Match ideer med deres hverdagskopier (mini-spil)
  *   3. Vejen ud af hulen (4-trins hulelignelse)
  *   4. Sjælen husker hjem (afsluttende indsigt)
  */
@@ -125,7 +125,7 @@ export default function PhilosophyScreen({ onNext, onBack }) {
           {allPairsDone && caveDone
             ? 'Skriv detektivrapporten'
             : !allPairsDone
-              ? `Match idéerne (${matchedCount}/${TOTAL_PHILOSOPHY_PAIRS})`
+              ? `Match ideerne (${matchedCount}/${TOTAL_PHILOSOPHY_PAIRS})`
               : `Gå hele vejen ud af hulen (${caveStage}/${TOTAL_CAVE_STAGES})`}
         </Button>
       </div>
@@ -214,7 +214,7 @@ function ShadowIcon() {
   )
 }
 
-/* ---------- Sektion 2: Match idéer og kopier ---------- */
+/* ---------- Sektion 2: Match ideer og kopier ---------- */
 
 function PhilosophyMatching({ matched, onMatch, onMiss, allDone, intro }) {
   // Skift ikke rækkefølgen efter første render — det er distraherende.
@@ -252,9 +252,9 @@ function PhilosophyMatching({ matched, onMatch, onMiss, allDone, intro }) {
   }
 
   return (
-    <section className="philosophy-match" aria-label="Match idé med kopi">
+    <section className="philosophy-match" aria-label="Match ide med kopi">
       <div className="philosophy-match-head">
-        <span className="eyebrow">Mini-spil · Idé og kopi</span>
+        <span className="eyebrow">Mini-spil · Ide og kopi</span>
         <h2 className="philosophy-match-title">Alt vi ser er en kopi</h2>
         <p>{intro}</p>
       </div>
@@ -281,8 +281,8 @@ function PhilosophyMatching({ matched, onMatch, onMiss, allDone, intro }) {
           })}
         </div>
 
-        <div className="philosophy-match-col" aria-label="De perfekte idéer">
-          <span className="philosophy-match-col-title">Idéernes verden</span>
+        <div className="philosophy-match-col" aria-label="De perfekte ideer">
+          <span className="philosophy-match-col-title">Ideernes verden</span>
           {ideas.map((idea) => {
             const isMatched = !!matched[idea.id]
             const isShaking = wrongShake === idea.id
@@ -304,7 +304,7 @@ function PhilosophyMatching({ matched, onMatch, onMiss, allDone, intro }) {
 
       {allDone && (
         <div className="philosophy-match-insights fade-up">
-          <span className="eyebrow">Sådan hænger idé og kopi sammen</span>
+          <span className="eyebrow">Sådan hænger ide og kopi sammen</span>
           <ul>
             {PHILOSOPHY_PAIRS.map((p) => (
               <li key={p.id}>{p.insight}</li>

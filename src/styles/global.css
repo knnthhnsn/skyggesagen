@@ -5930,7 +5930,7 @@ html[data-motion-effects="on"] .profile-pass-portrait::after {
   font-weight: 600;
 }
 
-/* Sektion 2: Match idéer og kopier */
+/* Sektion 2: Match ideer og kopier */
 .philosophy-match {
   margin-top: 18px;
   padding: 18px 14px 20px;
@@ -6568,7 +6568,7 @@ html[data-motion-effects="off"] .achievement-milo {
   .screen-pad { padding-bottom: 110px; }
   .screen-bottom-bar { margin: 0 -28px -28px; padding: 16px 28px 24px; }
 
-  /* Centrér single-screens (uden sidebar) i shell, så de ikke strækker sig */
+  /* Centrer single-screens (uden sidebar) i shell, så de ikke strækker sig */
   .app-shell:not(.has-sidebar) .app-main {
     max-width: 760px;
     margin: 0 auto;

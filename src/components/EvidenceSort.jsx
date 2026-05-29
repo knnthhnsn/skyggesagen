@@ -34,7 +34,7 @@ export default function EvidenceSort({ onAllSorted }) {
       setMilo(MILO_LINES.sortCorrect)
       playCorrect()
       setSelectedCardId(null)
-      // Hvis alle korrekte er placeret, signalér completion
+      // Hvis alle korrekte er placeret, signaler completion
       const placedAfter = { ...sorted, [card.id]: category }
       const correctNow = SORT_CARDS.every((c) => placedAfter[c.id] === c.correct)
       if (correctNow && typeof onAllSorted === 'function') {
@@ -140,7 +140,7 @@ function sortHint(correctCategory) {
   if (correctCategory === 'spor') return 'Kig efter en detalje, vi faktisk har set.'
   if (correctCategory === 'bevis') return 'Et bevis kan tjekkes af flere.'
   if (correctCategory === 'spørgsmål') return 'Et stort spørgsmål åbner sagen og får os til at undersøge.'
-  return 'Prøv én gang til med lup-blikket.'
+  return 'Prøv en gang til med lup-blikket.'
 }
 
 function categoryPrompt(category) {

@@ -76,7 +76,7 @@ export default function ClueReveal({ clue, onClose }) {
             <h2 className="clue-clue-title" id="clue-title">{clue.title}</h2>
             <p className="clue-clue-text" id="clue-desc">{clue.text}</p>
             <div className="clue-reveal-hero" aria-hidden="true">
-              <Milo pose="watching" size="lg" bob decorative />
+              <Milo pose="watching" size="lg" bob decorative imageOnly />
             </div>
             <p className="clue-clue-quote" id="clue-quote">“{clue.miloLine}”</p>
             <Button onClick={onClose} block>Tilbage til scenen</Button>

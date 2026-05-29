@@ -71,7 +71,7 @@ export default function StartScreen({ onOpenCase, onTeacher }) {
               <Milo pose={opening ? 'run' : 'wave'} size="lg" bob={!opening} pulse={opening} priority={!opening} />
             </div>
             <div className="start-shadow-card start-shadow-card-left" aria-hidden="true">
-              Kun én vinkel
+              Kun en vinkel
             </div>
             <div className="start-shadow-card start-shadow-card-right" aria-hidden="true">
               Hvad mangler?

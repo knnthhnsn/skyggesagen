@@ -35,7 +35,7 @@ const SCREEN_TITLES = {
   investigate: 'Find spor',
   witness: 'Afhør vidner',
   timeline: 'Tidslinje',
-  sort: 'Sortér sporene',
+  sort: 'Sorter sporene',
   question: 'Det gode spørgsmål',
   explanation: 'Byg forklaringen',
   reveal: 'Afslør skyggen',

@@ -1,4 +1,4 @@
-// Al læringsdata samlet ét sted. Dansk parafrase — ingen lange citater fra Sofies Verden.
+// Al læringsdata samlet et sted. Dansk parafrase — ingen lange citater fra Sofies Verden.
 
 /** Gamle symbol-id'er fra tidligere versioner → nye detektivstile */
 const SYMBOL_LEGACY_IDS = {
@@ -21,7 +21,7 @@ export const SYMBOLS = [
   },
   {
     id: 'idegnist',
-    label: 'Idégnist',
+    label: 'Idegnist',
     image: 'idegnist.png',
     tagline: 'Stiller spørgsmål der åbner sagen',
     hint: 'Du får de spørgsmål, der åbner sagen i stedet for gæt.',
@@ -62,7 +62,7 @@ export const CLUES = [
   {
     id: 'clue-1',
     title: 'Et frosset øjeblik',
-    text: 'Billedet viser kun ét øjeblik.',
+    text: 'Billedet viser kun et øjeblik.',
     hotspot: { x: 50, y: 15 },
     miloLine: 'Vent lidt… ser vi hele sagen her?',
   },
@@ -71,7 +71,7 @@ export const CLUES = [
     title: 'Før billedet',
     text: 'Vi ved ikke, hvad der skete før.',
     hotspot: { x: 73, y: 23, size: 'lg' },
-    miloLine: 'Det dér lugter af en skygge!',
+    miloLine: 'Det der lugter af en skygge!',
   },
   {
     id: 'clue-3',
@@ -82,10 +82,10 @@ export const CLUES = [
   },
   {
     id: 'clue-4',
-    title: 'Kun én delte',
-    text: 'Kun én person har delt billedet.',
+    title: 'Kun en delte',
+    text: 'Kun en person har delt billedet.',
     hotspot: { x: 32, y: 52 },
-    miloLine: 'Hmm. Kun én vinkel?',
+    miloLine: 'Hmm. Kun en vinkel?',
   },
   {
     id: 'clue-5',
@@ -104,17 +104,17 @@ export const SORT_CATEGORIES = [
   { id: 'spørgsmål', label: 'Stort spørgsmål', color: 'question-purple', hint: 'Et spørgsmål der åbner sagen.' },
 ]
 
-// 6 sorteringskort — hver hører til én kategori
+// 6 sorteringskort — hver hører til en kategori
 export const SORT_CARDS = [
   { id: 'sc-1', text: 'Alle ved, hvad der skete.', correct: 'gæt' },
-  { id: 'sc-2', text: 'Billedet viser kun én vinkel.', correct: 'spor' },
+  { id: 'sc-2', text: 'Billedet viser kun en vinkel.', correct: 'spor' },
   { id: 'sc-3', text: 'Vi har spurgt tre personer, der så situationen.', correct: 'bevis' },
   { id: 'sc-4', text: 'Hvordan ved vi, om billedet viser hele sandheden?', correct: 'spørgsmål' },
   { id: 'sc-5', text: 'Hvis mange tror det, må det være sandt.', correct: 'gæt' },
   { id: 'sc-6', text: 'Der mangler information om, hvad der skete før.', correct: 'spor' },
 ]
 
-// 4 spørgsmålsnøgler — kun én er den rigtige nøgle
+// 4 spørgsmålsnøgler — kun en er den rigtige nøgle
 export const QUESTION_KEYS = [
   { id: 'q-1', text: 'Hvor mange likes fik billedet?', correct: false, hint: 'Tal fortæller os ikke, hvad der er sandt.' },
   { id: 'q-2', text: 'Hvem delte det først?', correct: false, hint: 'Det er et spor — men ikke det filosofiske spørgsmål.' },
@@ -125,7 +125,7 @@ export const QUESTION_KEYS = [
 // 4 brikker — barnet bygger forklaringen i rigtig rækkefølge
 export const EXPLANATION_PIECES = [
   { id: 'p-1', text: 'Vi så et billede.', order: 1, role: 'Start' },
-  { id: 'p-2', text: 'Billedet viste kun én del.', order: 2, role: 'Vinkel' },
+  { id: 'p-2', text: 'Billedet viste kun en del.', order: 2, role: 'Vinkel' },
   { id: 'p-3', text: 'Mange gættede på resten.', order: 3, role: 'Skygge' },
   { id: 'p-4', text: 'Derfor skulle vi undersøge mere.', order: 4, role: 'Indsigt' },
 ]
@@ -186,7 +186,7 @@ export const WITNESSES = [
 export const TIMELINE_EVENTS = [
   { id: 't-1', order: 1, time: '11:35', label: 'Frikvarteret starter', desc: 'Eleverne strømmer ud i skolegården.' },
   { id: 't-2', order: 2, time: '11:40', label: 'Vennerne mødes', desc: 'De to på billedet finder hinanden ved hegnet.' },
-  { id: 't-3', order: 3, time: '11:42', label: 'Billedet tages', desc: 'Et øjeblik fanges. Kun ét billede, kun én vinkel.', anchor: true },
+  { id: 't-3', order: 3, time: '11:42', label: 'Billedet tages', desc: 'Et øjeblik fanges. Kun et billede, kun en vinkel.', anchor: true },
   { id: 't-4', order: 4, time: '11:43', label: 'De griner', desc: 'En joke gør, at begge griner højt.' },
   { id: 't-5', order: 5, time: '11:48', label: 'Klokken ringer', desc: 'Frikvarteret er slut. Sagen er stadig åben.' },
 ]
@@ -194,7 +194,7 @@ export const TIMELINE_EVENTS = [
 // Platons to verdener — kort, børnevenlig forklaring
 export const TWO_WORLDS = {
   ideas: {
-    title: 'Idéernes verden',
+    title: 'Ideernes verden',
     subtitle: 'Evig og perfekt',
     bullets: [
       'Her findes de perfekte former: den perfekte cirkel, det perfekte venskab, den perfekte retfærdighed.',
@@ -208,14 +208,14 @@ export const TWO_WORLDS = {
     bullets: [
       'Alt det vi ser, hører og rører ved.',
       'Træer vokser og visner. Venner skændes og bliver gode venner igen.',
-      'Alt her er kun en kopi af noget perfekt i idéernes verden.',
+      'Alt her er kun en kopi af noget perfekt i ideernes verden.',
     ],
   },
   bridge:
-    'Platon mente, at det vi sanser, bare er skygger af det virkelige. Når vi tænker dybt, husker sjælen hjem til idéernes verden.',
+    'Platon mente, at det vi sanser, bare er skygger af det virkelige. Når vi tænker dybt, husker sjælen hjem til ideernes verden.',
 }
 
-// Idé/kopi-par — barnet matcher en perfekt idé med en hverdagskopi
+// Ide/kopi-par — barnet matcher en perfekt ide med en hverdagskopi
 export const PHILOSOPHY_PAIRS = [
   {
     id: 'pp-cirkel',
@@ -223,7 +223,7 @@ export const PHILOSOPHY_PAIRS = [
     ideaHint: 'En tanke. Ingen tegnet cirkel er helt rund.',
     copy: 'Min tegnede cirkel',
     copyHint: 'Lidt skæv. Linjen ryster. Stadig en cirkel.',
-    insight: 'Vi genkender cirklen — også når den er skæv. Idéen findes i tanken.',
+    insight: 'Vi genkender cirklen — også når den er skæv. Ideen findes i tanken.',
   },
   {
     id: 'pp-venskab',
@@ -231,7 +231,7 @@ export const PHILOSOPHY_PAIRS = [
     ideaHint: 'Tillid, omsorg, plads til at være uenig.',
     copy: 'Et venskab i hverdagen',
     copyHint: 'Med op- og nedture. Sjov og skænderier.',
-    insight: 'Selv når venskabet bøvler, har vi en idé om, hvad et godt venskab er.',
+    insight: 'Selv når venskabet bøvler, har vi en ide om, hvad et godt venskab er.',
   },
   {
     id: 'pp-retfardighed',
@@ -239,7 +239,7 @@ export const PHILOSOPHY_PAIRS = [
     ideaHint: 'Alle bliver hørt. Ingen dømmes på rygter.',
     copy: 'En dom i skolegården',
     copyHint: 'Måske for hård. Måske for blød. Aldrig helt fair.',
-    insight: 'Vi mærker, når noget er uretfærdigt — fordi vi kender idéen om retfærdighed.',
+    insight: 'Vi mærker, når noget er uretfærdigt — fordi vi kender ideen om retfærdighed.',
   },
   {
     id: 'pp-tra',
@@ -247,7 +247,7 @@ export const PHILOSOPHY_PAIRS = [
     ideaHint: 'Alt det, der gør et træ til et træ.',
     copy: 'Træet i parken',
     copyHint: 'Med en knækket gren og et fuglerede.',
-    insight: 'Vi kalder det stadig et træ. Idéen ligger bag formen.',
+    insight: 'Vi kalder det stadig et træ. Ideen ligger bag formen.',
   },
 ]
 
@@ -290,7 +290,7 @@ export const CAVE_STAGES = [
 // Citater og indsigter — vises efter trinene er gennemført
 export const SOUL_INSIGHT = {
   title: 'Sjælen husker hjem',
-  text: 'Platon mente, at vores sjæl egentlig hører til i idéernes verden. Når vi tænker dybt og spørger “hvad er retfærdighed?” eller “hvad er sandhed?”, husker sjælen noget, den allerede ved.',
+  text: 'Platon mente, at vores sjæl egentlig hører til i ideernes verden. Når vi tænker dybt og spørger “hvad er retfærdighed?” eller “hvad er sandhed?”, husker sjælen noget, den allerede ved.',
   caseLink: 'Når du som detektiv spørger “er det her hele sandheden?” — så bruger du sjælens hukommelse.',
 }
 
@@ -321,7 +321,7 @@ export const BADGES = {
   'godt-sporgsmal': { id: 'godt-sporgsmal', label: 'Godt spørgsmål', desc: 'Du fandt det filosofiske spørgsmål.' },
   'skyggeopklarer': { id: 'skyggeopklarer', label: 'Skyggeopklarer', desc: 'Du afslørede skyggen.' },
   'sporgsmalsmester': { id: 'sporgsmalsmester', label: 'Spørgsmålsmester', desc: 'Du forstod, hvorfor spørgsmål åbner sagen.' },
-  'idernes-ven': { id: 'idernes-ven', label: 'Idéernes ven', desc: 'Du matchede alle idéer med deres hverdagskopier.' },
+  'idernes-ven': { id: 'idernes-ven', label: 'Ideernes ven', desc: 'Du matchede alle ideer med deres hverdagskopier.' },
   'huleudfrier': { id: 'huleudfrier', label: 'Hulens udfrier', desc: 'Du fulgte vejen fra skygge til solens lys.' },
   'sjaelens-detektiv': { id: 'sjaelens-detektiv', label: 'Sjælens detektiv', desc: 'Du forstod Platons to verdener og sjælens hukommelse.' },
   'maagens-ven': { id: 'maagens-ven', label: 'Mågens ven', desc: 'Du fandt Milos hemmelige hilsen.' },
@@ -357,13 +357,13 @@ export const APP_TITLE = 'Milo: Skyggesagen'
 
 export const TEACHER_INFO = {
   description:
-    'Milo: Skyggesagen er et spilbaseret læringsforløb, der introducerer børn til Platons filosofi gennem et detektivmysterium. Forløbet dækker hulelignelsen, læren om de to verdener (sanseverdenen og idéernes verden), idéerne som de perfekte former, og tanken om at sjælen husker hjem til idéernes verden.',
+    'Milo: Skyggesagen er et spilbaseret læringsforløb, der introducerer børn til Platons filosofi gennem et detektivmysterium. Forløbet dækker hulelignelsen, læren om de to verdener (sanseverdenen og ideernes verden), ideerne som de perfekte former, og tanken om at sjælen husker hjem til ideernes verden.',
   audience: '10-12 år',
   duration: '20-30 minutter',
   goals: [
     'Eleven kan forklare hulelignelsen i enkel form og sætte den i forhold til moderne situationer.',
-    'Eleven kan beskrive Platons to verdener — sanseverdenen (i forandring) og idéernes verden (evig og perfekt).',
-    'Eleven kan give eksempler på, at hverdagens ting er "kopier" af perfekte idéer.',
+    'Eleven kan beskrive Platons to verdener — sanseverdenen (i forandring) og ideernes verden (evig og perfekt).',
+    'Eleven kan give eksempler på, at hverdagens ting er "kopier" af perfekte ideer.',
     'Eleven kan skelne mellem gæt, spor, beviser og filosofiske spørgsmål.',
     'Eleven kan forstå, at det man ser, ikke altid er hele sandheden.',
     'Eleven kan koble filosofien til digitale medier og hverdagsliv.',
@@ -374,21 +374,21 @@ export const TEACHER_INFO = {
     'Saml op med spørgsmålene nederst på lærersiden.',
   ],
   classActivity:
-    'Tal om moderne skygger: billeder, rygter, filtre, sociale medier og halve sandheder. Lad eleverne finde tre ting i klassen, der er "kopier" af en idé (en stol, en cirkel, en regel om retfærdighed).',
+    'Tal om moderne skygger: billeder, rygter, filtre, sociale medier og halve sandheder. Lad eleverne finde tre ting i klassen, der er "kopier" af en ide (en stol, en cirkel, en regel om retfærdighed).',
   discussionQuestions: [
     'Hvornår kan et billede vise noget rigtigt, men stadig mangle noget vigtigt?',
     'Hvad er forskellen på et gæt, et spor og et bevis?',
     'Hvilket spørgsmål ville du stille, før du delte noget videre?',
     'Hvad mener Platon, når han siger, at vi nogle gange kun ser "skygger" af virkeligheden?',
-    'Kan I komme på noget i hverdagen, der er en "kopi" af en perfekt idé?',
-    'Hvad betyder det, at "sjælen husker hjem" til idéernes verden?',
+    'Kan I komme på noget i hverdagen, der er en "kopi" af en perfekt ide?',
+    'Hvad betyder det, at "sjælen husker hjem" til ideernes verden?',
     'Hvorfor er det svært at gå ud af hulen — også i virkeligheden, når man opdager man tog fejl?',
   ],
   philosophyPrimer: [
-    'Hulelignelsen: Mennesker er bundet i en hule og ser kun skygger på væggen. De tror, skyggerne er virkeligheden — indtil én vender sig om, ser bålet, og går ud til sollyset.',
-    'De to verdener: Sanseverdenen (alt vi ser, hører, rører) er i konstant forandring. Idéernes verden (de perfekte former) er evig og uforanderlig.',
-    'Kopier af idéer: Alt i naturen er kun en kopi af en perfekt idé. Et træ er en kopi af "idéen om et træ".',
-    'Sjælen: Platon mente, at sjælen oprindeligt hører til i idéernes verden — og at vi "husker" idéerne, når vi tænker dybt.',
+    'Hulelignelsen: Mennesker er bundet i en hule og ser kun skygger på væggen. De tror, skyggerne er virkeligheden — indtil en vender sig om, ser bålet, og går ud til sollyset.',
+    'De to verdener: Sanseverdenen (alt vi ser, hører, rører) er i konstant forandring. Ideernes verden (de perfekte former) er evig og uforanderlig.',
+    'Kopier af ideer: Alt i naturen er kun en kopi af en perfekt ide. Et træ er en kopi af "ideen om et træ".',
+    'Sjælen: Platon mente, at sjælen oprindeligt hører til i ideernes verden — og at vi "husker" ideerne, når vi tænker dybt.',
   ],
   privacy: 'Ingen login. Progression gemmes kun lokalt i browseren.',
 }
@@ -404,11 +404,11 @@ export const MILO_LINES = {
   witnessGood: 'Godt spørgsmål. Det får os tættere på sandheden.',
   witnessLeading: 'Hov — det spørgsmål gætter allerede på svaret. Prøv at åbne det op.',
   witnessAllDone: 'Vi har tre vinkler nu. Ingen af dem er hele sandheden — men sammen viser de mere.',
-  timelineIntro: 'Billedet er kun ét frosset øjeblik. Lad os se, hvad der skete før og efter.',
+  timelineIntro: 'Billedet er kun et frosset øjeblik. Lad os se, hvad der skete før og efter.',
   timelineWrong: 'Hmm. Hvad sker der typisk først, og hvad bagefter?',
   timelineCorrect: 'Sådan! Nu kan vi se hele dagen — ikke bare det ene billede.',
   sortIntro: 'Hvad er gæt? Hvad er spor? Hvad er bevis? Og hvad er et stort spørgsmål?',
-  sortCorrect: 'Godt sorteret! Det dér hjælper sagen.',
+  sortCorrect: 'Godt sorteret! Det der hjælper sagen.',
   sortWrong: 'Hmm, den skal vi lige undersøge igen.',
   questionIntro: 'Sagen er låst. Vælg det spørgsmål, der åbner den.',
   questionWrong: 'Næsten… men det åbner ikke døren.',
@@ -417,15 +417,15 @@ export const MILO_LINES = {
   explanationCorrect: 'Nu hænger sagen sammen!',
   revealIntro: 'Klar? Lad os løfte skyggen.',
   revealDone: 'Platon ville sige, at vi nogle gange kun ser skygger. En detektiv spørger videre.',
-  philosophyIntro: 'Vent — før vi skriver rapporten. Platon havde en idé, der gør hele sagen større. Tør du følge mig ned i hulen?',
+  philosophyIntro: 'Vent — før vi skriver rapporten. Platon havde en ide, der gør hele sagen større. Tør du følge mig ned i hulen?',
   philosophyTwoWorlds: 'Platon sagde: Der er to verdener. Den vi sanser — og den vi tænker.',
-  philosophyMatchIntro: 'Match hver hverdagsting med dens perfekte idé. Idéen er det, vi tænker. Kopien er det, vi ser.',
-  philosophyMatchHit: 'Sådan! Hverdagstingen er en kopi — idéen ligger i tanken.',
-  philosophyMatchMiss: 'Hmm. Prøv igen — hvilken idé ligger bag denne hverdagsting?',
+  philosophyMatchIntro: 'Match hver hverdagsting med dens perfekte ide. Ideen er det, vi tænker. Kopien er det, vi ser.',
+  philosophyMatchHit: 'Sådan! Hverdagstingen er en kopi — ideen ligger i tanken.',
+  philosophyMatchMiss: 'Hmm. Prøv igen — hvilken ide ligger bag denne hverdagsting?',
   philosophyCaveIntro: 'Klar til at gå ud af hulen? Tryk dig vej fra skyggerne mod solens lys.',
   philosophyCaveStep: 'Et skridt nærmere lyset. Husk: de andre i hulen tror stadig, skyggen er virkeligheden.',
   philosophyCaveDone: 'Du gjorde det. Du gik fra skygger til solens lys — og du kommer tilbage og fortæller de andre. Det er filosofiens vej.',
-  philosophySoul: 'Sjælen husker hjem. Når du spørger “er det her hele sandheden?”, mærker du idéernes verden.',
+  philosophySoul: 'Sjælen husker hjem. Når du spørger “er det her hele sandheden?”, mærker du ideernes verden.',
   philosophyDone: 'Nu har du Platons værktøjer. Du kan se en skygge — og spørge bag den.',
   reportIntro: 'Nu er det din tur. Har du selv set en skygge i virkeligheden?',
   eggHello: '*hvisker* Godt set! Du opdager også de små ting. Det er det, en god detektiv gør.',

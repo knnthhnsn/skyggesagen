@@ -248,7 +248,7 @@ function NotebookPanelContent({ go, onClose, closeRef, showClose = false }) {
           <ul className="notebook-list">
             <li className={philosophyMatched >= TOTAL_PHILOSOPHY_PAIRS ? 'is-done' : philosophyMatched > 0 ? 'is-progress' : ''}>
               <span aria-hidden="true">{philosophyMatched >= TOTAL_PHILOSOPHY_PAIRS ? '●' : philosophyMatched > 0 ? '◐' : '○'}</span>
-              <span><strong>Idé og kopi</strong> — {philosophyMatched}/{TOTAL_PHILOSOPHY_PAIRS} par matchet</span>
+              <span><strong>Ide og kopi</strong> — {philosophyMatched}/{TOTAL_PHILOSOPHY_PAIRS} par matchet</span>
             </li>
             <li className={caveStage >= TOTAL_CAVE_STAGES ? 'is-done' : caveStage > 0 ? 'is-progress' : ''}>
               <span aria-hidden="true">{caveStage >= TOTAL_CAVE_STAGES ? '●' : caveStage > 0 ? '◐' : '○'}</span>

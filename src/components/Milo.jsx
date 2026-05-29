@@ -45,6 +45,7 @@ const SIZE_PX = {
  * Milo komponent — robust med fallback hvis billede mangler.
  * Tryk x5 låser easter-egg op (kun sjov, ingen progression-konsekvens).
  * Brug:  <Milo pose="wave" size="lg" bob priority />
+ * Brug imageOnly i modaler, hvor PNG foretrækkes frem for video.
  */
 export default function Milo({
   pose = 'neutral',
@@ -53,6 +54,7 @@ export default function Milo({
   pulse = false,
   decorative = false,
   priority = false,
+  imageOnly = false,
   className = '',
   style,
 }) {
@@ -70,7 +72,7 @@ export default function Milo({
   const file = POSE_TO_FILE[pose] || POSE_TO_FILE.neutral
   const videoFile = POSE_TO_VIDEO[pose]
   const videoSrc = videoFile ? miloAssetUrl(videoFile) : null
-  const useVideo = !!videoSrc && !videoFailed && !errored
+  const useVideo = !!videoSrc && !videoFailed && !errored && !imageOnly
   const alt = decorative ? '' : (POSE_ALT[pose] || 'Milo mågen')
   const tapLabel = eggUnlocked
     ? `${alt}. Tryk for at høre Milos hvisken igen.`
@@ -96,7 +98,7 @@ export default function Milo({
     setErrored(false)
     setVideoFailed(false)
     setVideoReady(false)
-  }, [pose])
+  }, [pose, imageOnly])
 
   useEffect(() => {
     const root = miloRef.current

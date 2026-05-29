@@ -105,7 +105,7 @@ export default function ThoughtReport({ onSubmit }) {
 
       <div className="report-submit">
         <p className="report-submit-hint" role="status" aria-live="polite">
-          {canSubmit ? 'Klar. Din rapport har en tanke at tage med videre.' : 'Vælg mindst én brik, eller skriv din egen tanke.'}
+          {canSubmit ? 'Klar. Din rapport har en tanke at tage med videre.' : 'Vælg mindst en brik, eller skriv din egen tanke.'}
         </p>
         <Button variant="primary" block onClick={submit} disabled={!canSubmit}>
           Indsend rapporten
