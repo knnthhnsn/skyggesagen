@@ -13,12 +13,12 @@ export default function SortScreen({ onNext, onBack }) {
 
   return (
     <div className="screen screen-pad">
-      <Header eyebrow="Sortér sporene" name="Detektivboard" onBack={onBack} />
+      <Header eyebrow="Sorter sporene" name="Detektivboard" onBack={onBack} />
       <EvidenceSort onAllSorted={() => setDone(true)} />
       <div className="screen-bottom-bar">
         <SkipTaskButton screen="sort" onSkip={onNext} />
         <Button variant="primary" block onClick={onNext} disabled={!done}>
-          {done ? 'Find det gode spørgsmål' : 'Sortér alle kort først'}
+          {done ? 'Find det gode spørgsmål' : 'Sorter alle kort først'}
         </Button>
       </div>
     </div>

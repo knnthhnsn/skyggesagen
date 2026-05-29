@@ -28,7 +28,7 @@ export const initialState = {
   timelineOrder: [],
   timelineSolved: false,
   // Platons filosofi
-  philosophyPairs: {},       // { [pairId]: true } — hvilke idé/kopi-par der er matchet
+  philosophyPairs: {},       // { [pairId]: true } — hvilke ide/kopi-par der er matchet
   caveStage: 0,              // 0..4 — hvor langt ud af hulen vi er gået
   philosophyDone: false,
   skippedScreens: [],

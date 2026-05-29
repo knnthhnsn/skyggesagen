@@ -95,7 +95,7 @@ export function hasPassedScreen(state, screen) {
   return isScreenSkipped(state, screen) || isTaskGenuinelyComplete(state, screen)
 }
 
-/** Kun markér som sprunget over — udfyld ikke løsningsdata. */
+/** Kun marker som sprunget over — udfyld ikke løsningsdata. */
 export function applySkipTask(state, screen) {
   if (!SKIPPABLE_SCREENS.has(screen)) return state
   const skippedScreens = state.skippedScreens || []

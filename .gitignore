@@ -7,6 +7,11 @@ dist/
 .env.local
 .env.*.local
 
+# Lokalt udviklingsarbejde (ikke del af hjemmesiden)
+.cursor/
+docs/
+lighthouse*.json
+
 # Rå videoklip i projektrod (spillets versioner ligger i public/assets/milo/)
 /*.mp4
 /*.MP4

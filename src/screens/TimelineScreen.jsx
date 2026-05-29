@@ -128,7 +128,7 @@ export default function TimelineScreen({ onNext, onBack }) {
       <div className="screen-bottom-bar">
         <SkipTaskButton screen="timeline" onSkip={onNext} />
         <Button variant="primary" block onClick={onNext} disabled={!solved}>
-          {solved ? 'Sortér sporene' : `Sæt begivenhederne (${correctCount}/${TIMELINE_EVENTS.length})`}
+          {solved ? 'Sorter sporene' : `Sæt begivenhederne (${correctCount}/${TIMELINE_EVENTS.length})`}
         </Button>
       </div>
     </div>

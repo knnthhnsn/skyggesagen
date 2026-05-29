@@ -111,11 +111,11 @@ function FinalReport({ onDone, onBack, onEdit }) {
         <div className="report-philosophy">
           <span className="report-meta">Filosofisk værktøj — Platons to verdener</span>
           <p>
-            <strong>Sanseverdenen</strong> er det vi ser, hører og rører — den ændrer sig hele tiden. <strong>Idéernes
+            <strong>Sanseverdenen</strong> er det vi ser, hører og rører — den ændrer sig hele tiden. <strong>Ideernes
             verden</strong> er de perfekte tanker bag: en perfekt cirkel, et perfekt venskab, ægte retfærdighed.
           </p>
           <p style={{ marginTop: 6 }}>
-            Platon mente, at hverdagens ting bare er kopier af idéerne — og at vores sjæl husker hjem til idéernes
+            Platon mente, at hverdagens ting bare er kopier af ideerne — og at vores sjæl husker hjem til ideernes
             verden, når vi tænker dybt. Når jeg spørger “er det her hele sandheden?”, gør jeg lige som filosoffen, der
             går ud af hulen.
           </p>
